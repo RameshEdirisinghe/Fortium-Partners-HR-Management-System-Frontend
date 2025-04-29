@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
     <nav class="navbar">
       <div class="container navbar-container">
         <a routerLink="/" class="navbar-brand">
-          <span class="navbar-logo">EMS</span>
+          <span class="navbar-logo">HR</span>
           <span class="navbar-title">Employee Management</span>
         </a>
         <div class="navbar-menu" [class.active]="isMenuOpen">
