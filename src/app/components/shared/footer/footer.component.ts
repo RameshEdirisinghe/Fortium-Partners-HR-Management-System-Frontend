@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p class="copyright">© {{ currentYear }} Employee Management System</p>
-          <p class="credits">Created by Ramesh | Academic Project</p>
+          <p class="copyright">© {{ currentYear }} Fortium Partners</p>
+          <p class="credits">Created by Ramesh | ICET</p>
         </div>
       </div>
     </footer>
