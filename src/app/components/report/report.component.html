@@ -1,1 +1,57 @@
-<p>report works!</p>
+<div class="report-container">
+    <h1>Report Generation</h1>
+    <p class="description">Generate and download various reports in Excel format</p>
+  
+    <div class="cards-container">
+      <mat-card class="report-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>calendar_month</mat-icon>
+          <mat-card-title>Last Month Report</mat-card-title>
+          <mat-card-subtitle>Complete data from the previous month</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Contains all records from the previous calendar month in Excel format.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" 
+                  (click)="downloadLastMonthReport()"
+                  [disabled]="isLoading">
+            <span *ngIf="!isLoading || lastDownloaded !== 'last_month_report.xlsx'">
+              Download
+            </span>
+            <span *ngIf="isLoading && lastDownloaded === 'last_month_report.xlsx'">
+              <mat-spinner diameter="20"></mat-spinner> Generating...
+            </span>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+  
+      <mat-card class="report-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>event_available</mat-icon>
+          <mat-card-title>Last 10 Days Report</mat-card-title>
+          <mat-card-subtitle>Employee data from the last 10 days</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Contains employee records from the last 10 days in Excel format.</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" 
+                  (click)="downloadLast10DaysReport()"
+                  [disabled]="isLoading">
+            <span *ngIf="!isLoading || lastDownloaded !== 'last_10_days_employees.xlsx'">
+              Download
+            </span>
+            <span *ngIf="isLoading && lastDownloaded === 'last_10_days_employees.xlsx'">
+              <mat-spinner diameter="20"></mat-spinner> Generating...
+            </span>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  
+    <div *ngIf="lastDownloaded" class="download-message">
+      <mat-icon>download_done</mat-icon>
+      <span>Last downloaded: {{ lastDownloaded }}</span>
+    </div>
+  </div>
