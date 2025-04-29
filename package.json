@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter",
+  "name": "employee-management-system",
   "private": true,
   "scripts": {
     "ng": "ng",
@@ -7,17 +7,14 @@
     "build": "ng build"
   },
   "dependencies": {
-    "@angular/animations": "^19.2.8",
-    "@angular/cdk": "^19.2.11",
+    "@angular/animations": "^19.2.0",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
     "@angular/forms": "^19.2.0",
-    "@angular/material": "^19.2.11",
     "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "@types/file-saver": "^2.0.7",
-    "file-saver": "^2.0.5",
     "rxjs": "^7.8.1",
     "tslib": "^2.5.0",
     "zone.js": "~0.15.0"
