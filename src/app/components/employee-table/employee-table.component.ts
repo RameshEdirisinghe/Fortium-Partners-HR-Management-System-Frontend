@@ -5,11 +5,12 @@ import { Employee, DepartmentType } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ToastComponent } from '../toast/toast.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-employee-table',
   standalone: true,
-  imports: [CommonModule, FormsModule, EmployeeFormComponent, ToastComponent],
+  imports: [CommonModule, FormsModule, EmployeeFormComponent, ToastComponent,RouterModule],
   templateUrl: './employee-table.component.html',
   styleUrls: ['./employee-table.component.css']
 })
