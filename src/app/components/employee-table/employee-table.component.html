@@ -1,0 +1,64 @@
+<div class="employee-container">
+  <div class="header">
+    <h1>Fortium Partners </h1>
+      
+    <h2>HR Management System</h2>
+    <button class="btn btn-primary" (click)="addNewEmployee()">Add New Employee</button>
+  </div>
+
+  <div class="search-bar">
+    <input 
+      type="text" 
+      [(ngModel)]="searchId" 
+      placeholder="Search by Employee ID" 
+      class="search-input"
+    />
+    <button class="btn btn-search" (click)="searchEmployee()">Search</button>
+    <button class="btn btn-clear" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <div class="table-container" [class.loading]="loading">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="loading">
+          <td colspan="5" class="loading-row">Loading employees...</td>
+        </tr>
+        <tr *ngIf="!loading && employees.length === 0">
+          <td colspan="5" class="empty-row">No employees found</td>
+        </tr>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ getDepartmentLabel(employee.department) }}</td>
+          <td class="actions">
+            <button class="btn btn-edit" (click)="editEmployee(employee)">Edit</button>
+            <button class="btn btn-delete" (click)="deleteEmployee(employee.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-employee-form 
+    *ngIf="showForm" 
+    [employee]="selectedEmployee" 
+    (close)="closeForm()" 
+    (save)="handleEmployeeSaved()">
+  </app-employee-form>
+
+  <app-toast 
+    *ngIf="showToast" 
+    [message]="toastMessage" 
+    [type]="toastType">
+  </app-toast>
+</div>

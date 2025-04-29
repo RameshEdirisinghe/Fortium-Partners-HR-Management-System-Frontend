@@ -1,0 +1,69 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ employee ? 'Edit Employee' : 'Add New Employee' }}</h2>
+      <button type="button" class="btn-close" (click)="closeForm()">&times;</button>
+    </div>
+    
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="modal-body">
+        <div class="form-error" *ngIf="formErrors['general']">
+          {{ formErrors['general'] }}
+        </div>
+        
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            formControlName="name" 
+            [class.has-error]="hasError('name')"
+          />
+          <div class="error-message" *ngIf="hasError('name')">
+            {{ getFieldError('name') }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            [class.has-error]="hasError('email')"
+          />
+          <div class="error-message" *ngIf="hasError('email')">
+            {{ getFieldError('email') }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select 
+            id="department" 
+            formControlName="department" 
+            [class.has-error]="hasError('department')"
+          >
+            <option *ngFor="let dept of departments" [value]="dept">
+              {{ dept }}
+            </option>
+          </select>
+          <div class="error-message" *ngIf="hasError('department')">
+            {{ getFieldError('department') }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancel" (click)="closeForm()">Cancel</button>
+        <button 
+          type="submit" 
+          class="btn btn-save" 
+          [disabled]="employeeForm.invalid || submitting"
+        >
+          {{ submitting ? 'Saving...' : 'Save' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
