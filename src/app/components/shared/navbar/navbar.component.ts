@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
       <div class="container navbar-container">
         <a routerLink="/" class="navbar-brand">
           <span class="navbar-logo">HR</span>
-          <span class="navbar-title">Employee Management</span>
+          <span class="navbar-title">Fortium Partners</span>
         </a>
         <div class="navbar-menu" [class.active]="isMenuOpen">
           <a routerLink="/employees" routerLinkActive="active" class="navbar-item"
