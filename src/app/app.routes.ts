@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+<<<<<<< HEAD
 
 export const routes: Routes = [
   { 
@@ -31,4 +32,14 @@ export const routes: Routes = [
     loadComponent: () => import('./components/shared/not-found/not-found.component').then(m => m.NotFoundComponent),
     title: 'Page Not Found'
   }
+=======
+import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
+import { ReportComponent } from './components/report/report.component';
+
+export const routes: Routes = [
+  { path: 'employees', component: EmployeeTableComponent },
+  { path: 'reports', component: ReportComponent },
+  { path: '', redirectTo: '/employees', pathMatch: 'full' },
+  { path: '**', redirectTo: '/employees' }
+>>>>>>> 328473764816f4872dcec0d78b4afe5db8503eb1
 ];
